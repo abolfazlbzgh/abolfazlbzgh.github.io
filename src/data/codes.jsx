@@ -43,7 +43,6 @@ const codes = [
     createTime: "Sep 9, 2023",
     tags: ["Tailwind", "CSS"],
     cover: '../public/Images/coverTailwind.webp',
-    tags: ["Tailwind", "CSS" ],
     btnLink: 'https://medium.com/@alifm2101/a-comprehensive-introduction-to-tailwind-css-36bc9cb81a1c',
     btn: 'Page Source',
     article: [
