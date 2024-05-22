@@ -13,7 +13,7 @@ export default function Home() {
 
       <div className='mx-auto pt-5 flex justify-center'>
 
-        <img src='./profile.png' alt="Profile" className=' w-48 h-48 rounded-full bg-primary object-cover lg:w-48 lg:h-48' />
+        <img src='./Images/profile.png' alt="Profile" className=' w-48 h-48 rounded-full bg-primary object-cover lg:w-48 lg:h-48' />
       </div>
 
       <h1 className='mt-5 text-center text-2xl lg:text-3xl font-bold dark:text-white' >Abolfazl Bazghandi</h1>

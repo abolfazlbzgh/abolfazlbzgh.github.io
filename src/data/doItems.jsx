@@ -4,7 +4,7 @@ import CalendarIcon from '../components/Icons/CalendarIcon'
 import EmailIcon from '../components/Icons/EmailIcon'
 
 const Infos = [
-    { id:'1',title: 'React', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod tincidunt volutpat.', icon: <PhoneIcon /> },
+    { id:'1',title: 'React', desc: 'With 10 years of professional Java experience, I design and build Android and desktop applications.', icon: <PhoneIcon /> },
     { id:'2',title: 'React', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod tincidunt volutpat. ', icon: <CalendarIcon /> },
     { id:'3',title: 'React', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod tincidunt volutpat.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod tincidunt volutpat. ', icon: <PhoneIcon /> },
     { id:'4',title: 'React', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod tincidunt volutpat.', icon: <PhoneIcon /> },
