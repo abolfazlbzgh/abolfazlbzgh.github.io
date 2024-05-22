@@ -99,53 +99,6 @@ const codes = [
 
   },
   {
-    id: '3',
-    title: 'Title Good for me and you around',
-    creatorName: 'Abolfazl Bazghandi',
-    creatorImage: '/profile.jpg',
-    createTime: "19 May 2024",
-    cover: '/profile2.jpg',
-    tags: ["Android", "Personal Project", "Java"],
-    btnLink: 'https://coolors.co/gradients',
-    btn: 'download source code',
-    article: [
-      { type: 'p', content: "this is a desc about this project" },
-      { type: 'html', content: `<h1 style="background-color: aqua;"> this is </h1><p>this is the text <b>Bold</b> and another <u>under line</u></p>` },
-      { type: 'h1', content: 'H1 tag <h1 style="background-color: aqua;"> this is </h1><p>this is the text <b>Bold</b> and another <u>under line</u></p> <h1 style="background-color: aqua;"> this is </h1><p>this is the text <b>Bold</b> and another <u>under line</u></p>' },
-      { type: 'h2', content: 'H2 tag' },
-      { type: 'h3', content: 'H3 tag' },
-      {
-        type: 'code',
-        lang: "python",
-        code: 
-`public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-`
-      },
-      { type: 'h4', content: 'H4 tag' },
-      { type: 'p', content: "this is a desc about another this project" },
-      { type: 'img', src: '/Images/cover1.jpg' },
-      { type: 'ul', items: ['firstItem', 'second Item'] },
-      { type: 'ol', items: ['item 1', 'item 2'] },
-      {
-        type: 'code',
-        lang: "python",
-        code: `
-                public class HelloWorld {
-                    public static void main(String[] args) {
-                        System.out.println("Hello, World!");
-                    }
-                }
-              `
-      },
-    ]
-
-
-  },
-  {
     id: '4',
     title: 'Unveiling the Power of Next.js vs React: Choosing the Ideal Framework',
     creatorName: 'Mahsa',
