@@ -61,13 +61,13 @@ html, body, #root {
     @apply bg-gradient-to-r from-primary to-secondary transition-all text-white;
   }
   .homeContainer{
-    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mt-8 p-5  ;
+    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mt-4 p-5  ;
   }
   .pageContainer{
-    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto  mt-8 p-5  ;
+    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto  mt-4 p-5  ;
   }
   .headerContainer{
-    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto pt-12;
+    @apply w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto pt-8;
   }
   .pageBackground{
     @apply bg-white shadow-lg  rounded-lg dark:bg-item-menu-bg;
