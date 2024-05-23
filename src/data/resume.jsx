@@ -86,13 +86,24 @@ const awards = [
 const skills = [
     { id: '1', title: 'Java', percent: 90, },
     { id: '2', title: 'Java Script', percent: 80, },
-    { id: '3', title: 'Python', percent: 20, },
-    { id: '4', title: 'React', percent: 60, },
+    { id: '3', title: 'React', percent: 80, },
+    { id: '4', title: 'Tailwind CSS', percent: 90, },
+    { id: '5', title: 'Android', percent: 80, },
+    { id: '6', title: 'SQL', percent: 80, },
+    { id: '7', title: 'NodeJS', percent: 60, },
+    { id: '8', title: 'MongoDB', percent: 70, },
+    { id: '9', title: 'PHP', percent: 50, },
+    { id: '10', title: 'Kotlin', percent: 70, },
+    { id: '11', title: 'Python', percent: 50, },
+    { id: '12', title: 'Type Script', percent: 60, },
+    { id: '12', title: 'HardWare: VHDL, Verilog', percent: 60, },
+    { id: '13', title: 'Electronics: FPGA, AVR, ARM', percent: 80, },
 
 
 ];
 const knowledges = [
     { id: '1', title: 'Android Developer' },
+    { id: '2', title: 'Reinforcement Learning' },
 
 
 ];

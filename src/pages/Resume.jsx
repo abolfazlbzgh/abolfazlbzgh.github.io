@@ -12,6 +12,7 @@ import SkillItem from '../components/Resume/SkillItem/SkillItem'
 import KnowledgeItem from '../components/Resume/Knowledge/KnowledgeItem'
 
 export default function Resume() {
+  const skillMid = (skills.length/2)
   return (
     <PageBox title={'Resume'} >
       <div className=' grid grid-cols-1 lg:grid-cols-2 xl:lg:grid-cols-3 grid-flow-row gap-4'>
@@ -36,7 +37,7 @@ export default function Resume() {
           {
             educations.map((education) => {
               return (
-                <EducationItem  key={education.id} {...education} />
+                <EducationItem key={education.id} {...education} />
               );
             })
           }
@@ -50,34 +51,33 @@ export default function Resume() {
           {
             awards.map((award) => {
               return (
-                <AwardItem   key={award.id}{...award} />
+                <AwardItem key={award.id}{...award} />
               );
             })
           }
         </div>
       </div>
 
-      <div className='grid grid-cols-1 mt-6 lg:grid-cols-2 grid-flow-row  gap-4 bgBox'>
-        <div className='flex flex-col gap-4 p-4'>
-          <h2 className='text-title font-bold text-2xl'>Skills</h2>
-          {
-            skills.map(skill => {
-              return <SkillItem key={skill.id} {...skill} />
-            })
-          }
-        </div>
-        <div className='flex flex-col gap-4 p-4'>
-          <h2 className='text-title font-bold text-2xl'>Knowledges</h2>
-          <div className='flex flex-wrap gap-2 justify-start items-center '>
-          {
-            knowledges.map(knowledge => {
-              return <KnowledgeItem key={knowledge.id} {...knowledge} />
-            })
-          }
+      <div className='flex flex-col justify-start bgBox mt-6 p-4'>
+        <h2 className='text-title font-bold text-2xl'>Skills</h2>
+        <div className='grid grid-cols-1 mt-4 md:grid-cols-2 grid-flow-row  gap-4 '>
+          <div className='flex flex-col gap-4 '>
+            {
+              skills.slice(0,skillMid).map(skill => {
+                return <SkillItem key={skill.id} {...skill} />
+              })
+            }
           </div>
-          
+          <div className='flex flex-col gap-4 '>
+            {
+              skills.slice(skillMid).map(skill => {
+                return <SkillItem key={skill.id} {...skill} />
+              })
+            }
+          </div>
         </div>
       </div>
+
     </PageBox>
   )
 }
