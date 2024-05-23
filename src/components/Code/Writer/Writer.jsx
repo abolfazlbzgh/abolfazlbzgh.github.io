@@ -12,8 +12,8 @@ export default function Writer({ creatorImage, creatorName, createTime }) {
         navigate(-1);
     };
     return (
-        <div className='flex flex-col w-full'>
-            <div className='flex w-full justify-between items-center mt-4  '>
+        <div className='flex flex-col w-full '>
+            <div className='flex w-full justify-between items-center   '>
 
                 <div className='flex justify-start items-center gap-4'>
                     <img src={creatorImage} alt="Profile" className=' w-14 h-14 rounded-full bg-primary object-cover ' />
@@ -32,7 +32,7 @@ export default function Writer({ creatorImage, creatorName, createTime }) {
             </div>
 
 
-            <div className='w-full rounded-full bg-text-dark/80 mt-1 mb-6 h-[1px]'></div>
+            <div className='w-full rounded-full gradient mt-1 mb-4 h-[1px]'></div>
         </div>
 
     )
