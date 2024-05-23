@@ -14,6 +14,7 @@ import CodeTag from '../components/Tags/CodeTag'
 import OlTag from '../components/Tags/OlTag'
 import ImgTag from '../components/Tags/ImgTag'
 import BrTag from '../components/Tags/BrTag'
+import ATag from '../components/Tags/ATag'
 import Tag from '../components/Code/Tag/Tag'
 import TagCodeDetail from '../components/Code/Tag/TagCodeDetail';
 
@@ -58,6 +59,9 @@ export default function CodeDetail() {
                     break;
                 case 'code':
                     content.push(<CodeTag code={block.code} lang={block.lang} />)
+                    break;
+                case 'a':
+                    content.push(<ATag {...block} />)
                     break;
                 default:
                     console.log(`Unknown Block Type at index ${index + 1}`);
