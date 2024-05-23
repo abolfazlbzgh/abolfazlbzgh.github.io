@@ -44,8 +44,8 @@ export default function CodeTag({ code, lang }) {
     return (
         <div className="relative  rounded-lg shadow-md  dark:bg-gray-800 mx-auto">
             <CopyToClipboard text={code} onCopy={handleCopy}>
-                <button className="absolute top-2 right-2 ring-1 text-xs ring-primary rounded-full px-4 py-1  hover:gradient
-            dark:text-white ">
+                <button className="absolute top-2 right-2 ring-1 text-xs text ring-primary rounded-full px-4 py-1  hover:gradient
+            ">
                     {copied ? 'Copied!' : 'Copy'}
                 </button>
             </CopyToClipboard>
