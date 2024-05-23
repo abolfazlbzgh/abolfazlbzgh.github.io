@@ -16,9 +16,9 @@ export default function Home() {
         <img src='./Images/profile.png' alt="Profile" className=' w-48 h-48 rounded-full bg-primary object-cover lg:w-48 lg:h-48' />
       </div>
 
-      <h1 className='mt-5 text-center text-2xl lg:text-3xl font-bold dark:text-white' >Abolfazl Bazghandi</h1>
+      <h1 className='mt-5 text-center text-title text-2xl lg:text-3xl font-bold ' >Abolfazl Bazghandi</h1>
 
-      <div className='mt-5 flex justify-center text-lg lg:text-xl dark:text-white' >
+      <div className='mt-5 flex text-title justify-center text-lg lg:text-xl ' >
         <Typewriter
           options={{
             loop: true,
