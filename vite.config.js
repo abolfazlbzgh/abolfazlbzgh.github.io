@@ -4,7 +4,7 @@ import vitePages from 'vite-plugin-react-pages';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '',
   plugins: [react()],
  
 })

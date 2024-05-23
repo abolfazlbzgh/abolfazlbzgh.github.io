@@ -45,7 +45,7 @@ export default function CodeDetail() {
                     content.push(<H4Tag t={block.content} />)
                     break;
                 case 'img':
-                    content.push(<ImgTag src={block.src} />)
+                    content.push(<ImgTag {...block} />)
                     break;
                 case 'ul':
                     content.push(<UlTag items={block.items} />)
