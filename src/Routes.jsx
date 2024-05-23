@@ -5,7 +5,7 @@ import Contact from "./pages/Contact"
 import Work from "./pages/Work"
 import Code from "./pages/Code"
 import CodeDetail from "./pages/CodeDetail"
-import Page404 from "./pages/404"
+import Page404 from "./pages/Page404"
 
 const routes = [
 
