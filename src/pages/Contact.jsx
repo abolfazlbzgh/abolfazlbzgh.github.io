@@ -105,7 +105,7 @@ export default function Contact() {
               </div>
               <Toast message={toast.message} visible={toast.visible} type={toast.type} />
               <button type='submit' className='ring-1 ring-primary rounded-full px-6 py-2 mt-1 w-32
-              btn ' >Submit</button>
+              btn btnDark' >Submit</button>
             </form>
           </div>
 
