@@ -18,32 +18,34 @@ export default function About() {
           <h2 className='text-2xl text-title'>
             Who Am I?
           </h2>
-          <p className='text-1xl w-11/12  text'>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.
-
-            My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.
+          <p className='text-1xl w-11/12  text text-justify'>
+            I hold a <b>master's degree in software engineering</b> and a <b>bachelor's degree in computer engineering</b>. My programming journey began in 2013, and I have nearly 10 years of experience. Initially, I worked with various hardware under supervision. Since 2014, my focus has been on <b>Java</b>. I've also learned <b>JavaScript, PHP, SQL, and Python</b> through university courses. In 2018, I pursued a master's degree while working as an <b>Android developer</b>, primarily using Java. My studies included <b>artificial intelligence, software engineering, reinforcement learning, and advanced databases</b>.
+          </p>
+          <br />
+          <p className='text-1xl w-11/12  text text-justify'>
+            After four years as an Android developer, I transitioned to a <b>front-end developer</b> role, focusing on <b>JavaScript, React, and Tailwind</b>, and also worked on back-end projects with <b>NodeJS and PHP</b>. I am experienced with <b>SQL databases</b> and familiar with <b>MongoDB</b>. In 2024, I moved to Canada to seek new opportunities. My work experience has honed my <b>teamwork, project management, and version control</b> skills.
           </p>
 
         </div>
         <div className="row-span-1 col-span-2  ">
-          <h2 className='text-2xl text-title'>
+          {/* <h2 className='text-2xl text-title'>
             Personal Info
           </h2>
           <div className=' grid grid-cols-1 sm:grid-cols-2  grid-flow-row gap-4 '>
             {
               infos.map((info, index) => {
                 if (index == (infos.length - 1)) {
-                  return(
-                  <div key={info.id} className='col-span-2'>
-                    <InfoItem key={info.id} title={info.title} desc={info.desc}>{info.icon}</InfoItem>
-                  </div>
+                  return (
+                    <div key={info.id} className='col-span-2'>
+                      <InfoItem key={info.id} title={info.title} desc={info.desc}>{info.icon}</InfoItem>
+                    </div>
                   )
 
                 }
                 return <InfoItem key={info.id} title={info.title} desc={info.desc}>{info.icon}</InfoItem>
               })
             }
-          </div>
+          </div> */}
 
         </div>
 
@@ -55,13 +57,13 @@ export default function About() {
           {
             doItItems.map(item => {
               return (
-                <DoItem key={item.id} title={item.title} desc={item.desc}>{item.icon}</DoItem>
+                <DoItem key={item.id} {...item}></DoItem>
               )
             })
           }
         </div>
       </div>
-    </PageBox>
+    </PageBox >
 
   )
 }
