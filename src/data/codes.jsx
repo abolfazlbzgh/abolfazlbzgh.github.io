@@ -25,16 +25,17 @@ const codes = [
       { type: 'h2', content: "Library" },
       { type: 'p', content: 'Various libraries were used in this application, some of which are listed below.' },
       { type: 'br' },
-      { type: 'ul', items: ['Glide: A fast and efficient image loading library for Android.'
-      , 'Retrofit: A type-safe HTTP client library for Android that simplifies API calls by using annotations.'
-      , 'Room: An ORM (Object Relational Mapper) that simplifies working with SQLite databases in Android.'
-      , 'Dagger 2: A powerful framework for managing dependencies.'
-      , 'Lottie: A library for animating complex vector graphics.'
-      , 'Espresso: An official testing framework from Google for writing UI tests for Android applications.'
-      , ''
-      , 'Natural language processing'
-      , 'Data mining'] },
-      
+      {
+        type: 'ul', items: ['Glide: A fast and efficient image loading library for Android.'
+          , 'Retrofit: A type-safe HTTP client library for Android that simplifies API calls by using annotations.'
+          , 'Room: An ORM (Object Relational Mapper) that simplifies working with SQLite databases in Android.'
+          , 'Dagger 2: A powerful framework for managing dependencies.'
+          , 'Lottie: A library for animating complex vector graphics.'
+          , 'Espresso: An official testing framework from Google for writing UI tests for Android applications.'
+          , 'Firebase Cloud Messaging: For Push Notifications in Android'
+        ]
+      },
+
       { type: 'br' },
       { type: 'p', content: 'After the release of its web version, the development of its Android version ended in 2022.' },
       { type: 'br' },
