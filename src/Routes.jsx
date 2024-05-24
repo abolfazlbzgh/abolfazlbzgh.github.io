@@ -4,6 +4,7 @@ import Resume from "./pages/Resume"
 import Contact from "./pages/Contact"
 import Work from "./pages/Work"
 import Code from "./pages/Code"
+import CreatePost from "./pages/CMS/CreatePost"
 import CodeDetail from "./pages/CodeDetail"
 import Page404 from "./pages/Page404"
 
@@ -15,6 +16,7 @@ const routes = [
     { path: "/contact", element: <Contact /> },
     { path: "/work", element: <Work /> },
     { path: "/code", element: <Code /> },
+    { path: "/createPost", element: <CreatePost /> },
     { path: "/codeDetail/:id", element: <CodeDetail /> },
     { path: "*", element: <Page404 /> },
 ]
