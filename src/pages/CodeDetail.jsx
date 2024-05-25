@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParams  } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import HTMLRenderer from '../components/Tags/HTMLRenderer'
 import PageBox from '../components/PageBox/PageBox'
-import codes from '../data/codes';
+import codes from '../data/codesData.json';
 import Writer from '../components/Code/Writer/Writer';
 import PTag from '../components/Tags/PTag'
 import UlTag from '../components/Tags/UlTag'
@@ -17,12 +17,12 @@ import BrTag from '../components/Tags/BrTag'
 import ATag from '../components/Tags/ATag'
 import Tag from '../components/Code/Tag/Tag'
 import TagCodeDetail from '../components/Code/Tag/TagCodeDetail';
+import Page404 from './Page404'
 
 export default function CodeDetail() {
     const { id } = useParams();
-    
-    const code = codes.find((item) => item.id === id);
 
+    const code = codes.find((item) => item.id === id);
     const render = () => {
         const content = [];
         code.article.forEach((block, index) => {
@@ -72,28 +72,38 @@ export default function CodeDetail() {
     }
 
     const renderLink = () => {
-        if (Object.prototype.hasOwnProperty.call(code, "btn")) { // Ensures own properties
+        if (Object.prototype.hasOwnProperty.call(code, "btn") && code.btn.length > 0) { // Ensures own properties
             return <a href={code.btnLink} target='_blank' className='ring-1 md:text-xl ring-primary rounded-full px-6 py-2 mt-4 btn btnDark' >{code.btn}</a>
         }
     }
     return (
-        <PageBox title={code.title} >
+        <>
+            {code && <PageBox title={code.title} >
 
-            <div className='w-full flex flex-col justify-start items-start '>
-                <Writer {...code} />
+                <div className='w-full flex flex-col justify-start items-start '>
+                    <Writer {...code} />
 
-                <img src={code.cover} alt="Cover" className=' w-full rounded-md  bg-primary object-cover ' />
+                    <img src={code.cover} alt="Cover" className=' w-full rounded-md  bg-primary object-cover ' />
 
-                {
-                    <div className='w-full flex flex-col gap-1 justify-start  overflow-auto'>
-                        {render()}
-                    </div>
-                }
-                <TagCodeDetail tags={code.tags} isLarge={true} />
-                {
-                    renderLink()
-                }
-            </div>
-        </PageBox>
+                    {
+                        <div className='w-full flex flex-col gap-1 justify-start  overflow-auto'>
+                            {render()}
+                        </div>
+                    }
+                    <TagCodeDetail tags={code.tags} isLarge={true} />
+                    {
+                        renderLink()
+                    }
+                </div>
+            </PageBox>
+            }
+            {!code && <Page404 />
+
+
+            }
+
+        </>
+
+
     )
 }

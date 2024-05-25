@@ -18,16 +18,19 @@ import BrTag from '../../components/Tags/BrTag'
 import ATag from '../../components/Tags/ATag'
 import Tag from '../../components/Code/Tag/Tag'
 import TagCodeDetail from '../../components/Code/Tag/TagCodeDetail';
+import DraggableList from '../../components/CMS/DraggableList';
+import { v4 as uuidv4 } from 'uuid';
 export default function CreatePost() {
-    const [id, setId] = useState(0)
+    const [id, setId] = useState(uuidv4())
     const [title, setTitle] = useState('')
-    const [creatorName, setCreatorName] = useState('')
-    const [creatorImage, setCreatorImage] = useState('')
-    const [createTime, setCreateTime] = useState('')
+    const [creatorName, setCreatorName] = useState('Abolfazl Bazghandi')
+    const [creatorImage, setCreatorImage] = useState('/Images/profile.png')
+    const [createTime, setCreateTime] = useState(getFormattedDate())
     const [cover, setCover] = useState('')
     const [tags, setTags] = useState('')
     const [btn, setBtn] = useState('')
     const [btnLink, setBtnLink] = useState('')
+    const [articles, setArticles] = useState([])
     const [code, setCode] = useState({
 
         id: '',
@@ -44,11 +47,21 @@ export default function CreatePost() {
         ]
 
     })
+    function getFormattedDate() {
+        const today = new Date();
+
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+
+        const formattedDate = `${monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+
+        return `${formattedDate}`;
+    }
 
     const onSubmit = (event) => {
         event.preventDefault();
-
-        setCode({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn })
+        setCode({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article: articles })
     }
 
     const setTagsFromTagItems = (items) => {
@@ -59,12 +72,13 @@ export default function CreatePost() {
             JSON.parse(event.target.value)
             setCode(JSON.parse(event.target.value))
         } catch (error) {
-            console.log("abolfazl in che kari bod");
             console.log(error);
         }
     }
     const onResultArticle = (result) => {
-        setCode({ ...code }, code.article.push(result))
+        setArticles([...articles, { ...result }]);
+        // setCode({ ...code, article: [...articles, { ...result }] })
+        // setCode({ ...code }, code.article.push(result))
     }
     const render = () => {
         const content = [];
@@ -115,7 +129,7 @@ export default function CreatePost() {
     }
 
     const renderLink = () => {
-        if (Object.prototype.hasOwnProperty.call(code, "btn")) { // Ensures own properties
+        if (Object.prototype.hasOwnProperty.call(code, "btn") && btn.length > 0) { // Ensures own properties
             return <a href={code.btnLink} target='_blank' className='ring-1 md:text-xl ring-primary rounded-full px-6 py-2 mt-4 btn btnDark' >{code.btn}</a>
         }
     }
@@ -124,7 +138,7 @@ export default function CreatePost() {
         <PageBox title={'Create Post'}>
 
             <form className='flex flex-col gap-4' onSubmit={(event) => onSubmit(event)}>
-                <div className='grid grid-cols-3 gap-3'>
+                <div className='grid grid-cols-3 gap-3 bgBox p-4'>
 
                     <Input title='Id' placeholder="id " state={id} setState={setId} />
                     <Input title='title' placeholder="Title of post " state={title} setState={setTitle} />
@@ -135,18 +149,28 @@ export default function CreatePost() {
                     <Input title='Title of button of end page' placeholder="Title button" state={btn} setState={setBtn} />
                     <Input title='Link of button of end page' placeholder="Link button" state={btnLink} setState={setBtnLink} />
                 </div>
-                <TagItems onResult={setTagsFromTagItems} title='Tag' placeholder='Write Tag' />
+                <div className='flex w-full bgBox p-4'>
+
+                    <TagItems onResult={setTagsFromTagItems} title='Tag' placeholder='Write Tag' />
+                </div>
 
 
                 <div className='flex flex-col justify-center items-center gap-4 mt-4'>
+                    <div className='flex w-full flex-col bgBox p-4'>
 
-                    <Article onResult={onResultArticle} />
-                    <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        <Article onResult={onResultArticle} />
+                        <div className="w-full mt-4">
+                            <DraggableList items={articles} setItems={setArticles} />
+                        </div>
+                    </div>
+                    <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Json And Show Demo</button>
                     <div className='w-full'>
-                        <label htmlFor="codeShow" className="block mb-2 text-sm font-medium text-gray-900 text">Code</label>
-                        <textarea id="codeShow" rows="6" value={JSON.stringify(code)} onChange={(event) => controlTextArea(event)} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
+                        <label htmlFor="codeShow" className="block mb-2 text-sm font-medium text-gray-900 text">Json</label>
+                        <textarea id="codeShow" rows="2" value={JSON.stringify(code)} onChange={(event) => controlTextArea(event)} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
 
                     </div>
+
+
 
                 </div>
 

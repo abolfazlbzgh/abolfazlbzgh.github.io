@@ -1,7 +1,6 @@
 import React from 'react'
 import CloseIcon from '../../Icons/CloseIcon'
 import { useNavigate } from 'react-router-dom';
-
 export default function Writer({ creatorImage, creatorName, createTime }) {
 
 
@@ -9,7 +8,12 @@ export default function Writer({ creatorImage, creatorName, createTime }) {
     const navigate = useNavigate();
 
     const handleClose = () => {
-        navigate(-1);
+        console.log(history);
+        if (history.length > 2) { // Check if there's at least one previous screen
+            navigate(-1);
+        } else {
+            navigate('/');
+        }
     };
     return (
         <div className='flex flex-col w-full '>

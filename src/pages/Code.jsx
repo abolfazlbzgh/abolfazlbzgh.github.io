@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageBox from '../components/PageBox/PageBox';
 import PaginationButton from '../components/Code/PaginationButton/PaginationButton';
-import codes from '../data/codes';
+import codes from '../data/codesData.json';
 import Search from '../components/Search/Search';
 import CodeItem from '../components/Code/CodeItem/CodeItem';
 import Information from '../components/Infromation/Information';
@@ -12,6 +12,7 @@ import ScrollToTopButton from '../components/Code/ScrollToTopButton/ScrollToTopB
 
 
 export default function Code() {
+  console.log(codes);
   const dataTest = codes.flatMap((item) => Array(10).fill(item));
   // const [currentPage, setCurrentPage] = useState(1);
   // const [codesPerPage, setCodesPerPage] = useState(10);

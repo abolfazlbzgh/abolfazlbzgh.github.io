@@ -7,7 +7,6 @@ import github from '../assets/github.svg'
 import githubHover from '../assets/githubHover.svg'
 export default function Home() {
   return (
-    //   bg-white rounded-lg shadow-lg
     <div className='homeContainer'>
 
 
@@ -54,7 +53,7 @@ export default function Home() {
           hoverIcon={linkedinLogoHover}
         />
         <SocialIcon
-          link='https://www.linkedin.com/in/abolfazl-bazghandi/'
+          link='https://github.com/abolfazlbzgh'
           icon={github}
           hoverIcon={githubHover}
         />
