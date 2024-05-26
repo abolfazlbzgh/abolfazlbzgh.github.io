@@ -51,5 +51,7 @@ function extractTagsAndSort(codes) {
 
     return allTags;
 }
-
-export { sendMessage, extractTagsAndSort };
+function sortByTimeDesc(data) {
+    return data.sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+}
+export { sendMessage, extractTagsAndSort, sortByTimeDesc };

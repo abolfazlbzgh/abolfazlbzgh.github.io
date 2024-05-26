@@ -7,18 +7,14 @@ import Search from '../components/Search/Search';
 import CodeItem from '../components/Code/CodeItem/CodeItem';
 import Information from '../components/Infromation/Information';
 import MostUseTag from '../components/Code/Tag/MostUseTag';
-import { extractTagsAndSort } from '../utils/utils'
+import { extractTagsAndSort, sortByTimeDesc } from '../utils/utils'
 import ScrollToTopButton from '../components/Code/ScrollToTopButton/ScrollToTopButton';
 
 
 export default function Code() {
-  console.log(codes);
-  const dataTest = codes.flatMap((item) => Array(10).fill(item));
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [codesPerPage, setCodesPerPage] = useState(10);
   const [displayedTags, setDisplayedTags] = useState(3);
   const [previousBreakpoint, setPreviousBreakpoint] = useState('');
-  const [showCodes, setShowCodes] = useState(codes);
+  const [showCodes, setShowCodes] = useState(sortByTimeDesc(codes));
   const [searchQuery, setSearchQuery] = useState('');
   const [searchParams] = useSearchParams();
 
@@ -116,30 +112,6 @@ export default function Code() {
       searchString(searchParamValue)
     }
   }, [searchParams]);
-
-
-
-  // const getVisibleMessages = () => {
-  //   const startIndex = (currentPage - 1) * messagesPerPage;
-  //   const endIndex = startIndex + messagesPerPage;
-  //   return messages.slice(startIndex, endIndex);
-  // };
-
-  // const renderPagination = () => {
-  //   const pageNumbers = [];
-  //   for (let i = 1; i <= totalPages; i++) {
-  //     pageNumbers.push(
-  //       <PaginationButton
-  //         key={i}
-  //         pageNumber={i}
-  //         currentPage={currentPage}
-  //         handlePageChange={handlePageChange}
-  //       >
-  //       </PaginationButton>
-  //     );
-  //   }
-  //   return <div className="flex w-10 h-10 justify-center gap-2">{pageNumbers}</div>;
-  // };
 
   return (
     <PageBox title={'Code'}>
