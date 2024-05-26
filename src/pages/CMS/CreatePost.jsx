@@ -80,9 +80,7 @@ export default function CreatePost() {
         // }
     }
     const onResultArticle = (result) => {
-        setArticle([...article, { ...result }]);
-        // setCode({ ...code, article: [...article, { ...result }] })
-        // setCode({ ...code }, code.article.push(result))
+        setArticle([...article, { ...result }]); 
     }
     const render = () => {
         const content = [];

@@ -15,7 +15,6 @@ import OlTag from '../components/Tags/OlTag'
 import ImgTag from '../components/Tags/ImgTag'
 import BrTag from '../components/Tags/BrTag'
 import ATag from '../components/Tags/ATag'
-import Tag from '../components/Code/Tag/Tag'
 import TagCodeDetail from '../components/Code/Tag/TagCodeDetail';
 import Page404 from './Page404'
 
