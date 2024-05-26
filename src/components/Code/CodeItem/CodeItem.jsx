@@ -8,7 +8,7 @@ export default function CodeItem({ id, cover, createTime, title, tags }) {
             <Link to={`/codeDetail/${id}`} className='w-full'>
                 <div className='flex justify-center items-center w-full '>
 
-                    <img src={cover} alt="Cover" className='w-full max-h-56 rounded-md mb-4 bg-primary object-cover  ' />
+                    <img src={cover} alt="Cover" className='w-full max-h-56 rounded-md mb-4  object-cover  ' />
                 </div>
                 <h1 className='text-title text-2xl font-bold'>{title}</h1>
                 <Tag tags={tags} />

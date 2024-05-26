@@ -20,6 +20,9 @@ import Tag from '../../components/Code/Tag/Tag'
 import TagCodeDetail from '../../components/Code/Tag/TagCodeDetail';
 import DraggableList from '../../components/CMS/DraggableList';
 import { v4 as uuidv4 } from 'uuid';
+import codes from '../../data/codesData.json';
+import { json } from 'react-router-dom';
+
 export default function CreatePost() {
     const [id, setId] = useState(uuidv4())
     const [title, setTitle] = useState('')
@@ -30,7 +33,7 @@ export default function CreatePost() {
     const [tags, setTags] = useState('')
     const [btn, setBtn] = useState('')
     const [btnLink, setBtnLink] = useState('')
-    const [articles, setArticles] = useState([])
+    const [article, setArticle] = useState([])
     const [code, setCode] = useState({
 
         id: '',
@@ -61,23 +64,24 @@ export default function CreatePost() {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        setCode({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article: articles })
+        setCode({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article })
+        localStorage.setItem(id, JSON.stringify({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article }));
     }
 
     const setTagsFromTagItems = (items) => {
         setTags(items)
     }
     const controlTextArea = (event) => {
-        try {
-            JSON.parse(event.target.value)
-            setCode(JSON.parse(event.target.value))
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     JSON.parse(event.target.value)
+        //     setCode(JSON.parse(event.target.value))
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
     const onResultArticle = (result) => {
-        setArticles([...articles, { ...result }]);
-        // setCode({ ...code, article: [...articles, { ...result }] })
+        setArticle([...article, { ...result }]);
+        // setCode({ ...code, article: [...article, { ...result }] })
         // setCode({ ...code }, code.article.push(result))
     }
     const render = () => {
@@ -134,11 +138,59 @@ export default function CreatePost() {
         }
     }
 
+    const loadFromId = () => {
+        const loadedCode = codes.find((item) => item.id === id);
+        if (loadedCode) {
+            setCode({ ...code, ...loadedCode })
+            load(loadedCode)
+        } else {
+            const loadedFromLocalStorage = localStorage.getItem(id)
+            if (loadedFromLocalStorage) {
+                const parsData = JSON.parse(loadedFromLocalStorage)
+                load(parsData)
+            } else {
+                alert('Id Not Found')
+            }
+
+        }
+    }
+
+    const load = (input) => {
+        console.log('start load');
+        console.log(input);
+        let data = {
+            id: '',
+            title: '',
+            creatorName: "",
+            creatorImage: '',
+            createTime: "",
+            cover: '',
+            tags: [],
+            btnLink: '',
+            btn: '',
+            article: [
+            ]
+        }
+        data = { ...data, ...input }
+        console.log('start load data');
+        console.log(data);
+        setTitle(data.title);
+        setCreatorName(data.creatorName);
+        setCreatorImage(data.creatorImage);
+        setCreateTime(data.createTime);
+        setCover(data.cover);
+        setTags(data.tags);
+        setBtn(data.btn);
+        setBtnLink(data.btnLink);
+        setArticle(data.article);
+    }
+
+
     return (
         <PageBox title={'Create Post'}>
 
             <form className='flex flex-col gap-4' onSubmit={(event) => onSubmit(event)}>
-                <div className='grid grid-cols-3 gap-3 bgBox p-4'>
+                <div className='grid grid-cols-3 gap-3 bgBox p-4 '>
 
                     <Input title='Id' placeholder="id " state={id} setState={setId} />
                     <Input title='title' placeholder="Title of post " state={title} setState={setTitle} />
@@ -148,6 +200,7 @@ export default function CreatePost() {
                     <Input title='Cover' placeholder="Cover Image Address File" state={cover} setState={setCover} />
                     <Input title='Title of button of end page' placeholder="Title button" state={btn} setState={setBtn} />
                     <Input title='Link of button of end page' placeholder="Link button" state={btnLink} setState={setBtnLink} />
+                    <button onClick={loadFromId} class="text-white my-auto bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full h-10 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">Load From Id</button>
                 </div>
                 <div className='flex w-full bgBox p-4'>
 
@@ -160,7 +213,7 @@ export default function CreatePost() {
 
                         <Article onResult={onResultArticle} />
                         <div className="w-full mt-4">
-                            <DraggableList items={articles} setItems={setArticles} />
+                            <DraggableList items={article} setItems={setArticle} />
                         </div>
                     </div>
                     <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Json And Show Demo</button>
@@ -189,7 +242,7 @@ export default function CreatePost() {
                 <div className='w-full flex flex-col justify-start items-start '>
                     <Writer {...code} />
 
-                    <img src={code.cover} alt="Cover" className=' w-full rounded-md  bg-primary object-cover ' />
+                    <img src={code.cover} alt="Cover" className=' w-full rounded-md  object-cover ' />
 
                     {
                         <div className='w-full flex flex-col gap-1 justify-start  overflow-auto'>
