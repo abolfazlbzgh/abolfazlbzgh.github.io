@@ -21,3 +21,8 @@ Below is a list of codes:
 ### Personal Projects:
 * [Application Pantomimkadeh](https://abolfazlbzgh.github.io/#/codeDetail/031fa187-82a5-4377-bd34-14176cc8d832)
 
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
