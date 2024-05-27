@@ -9,7 +9,6 @@ import { educations, experiences, awards, skills, knowledges } from '../data/res
 import ExperienceItem from '../components/Resume/ExperienceItem/ExperienceItem'
 import AwardItem from '../components/Resume/AwardItem/AwardItem'
 import SkillItem from '../components/Resume/SkillItem/SkillItem'
-import KnowledgeItem from '../components/Resume/Knowledge/KnowledgeItem'
 
 export default function Resume() {
   const skillMid = (skills.length/2)

@@ -1,6 +1,5 @@
 import React from 'react'
 import PageBox from '../components/PageBox/PageBox'
-import Information from '../components/Infromation/Information'
 import { Link } from 'react-router-dom'
 
 export default function notFound() {
