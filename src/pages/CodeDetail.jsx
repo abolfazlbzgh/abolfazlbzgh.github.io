@@ -82,7 +82,8 @@ export default function CodeDetail() {
                 <div className='w-full flex flex-col justify-start items-start '>
                     <Writer {...code} />
 
-                    <img src={code.cover} alt="Cover" className=' w-full rounded-md   object-cover ' />
+                    <img src={code.cover} alt="Cover" className=' w-full rounded-md max-h-72  object-contain  ' />
+
 
                     {
                         <div className='w-full flex flex-col gap-1 justify-start  overflow-auto'>

@@ -214,6 +214,7 @@ export default function CreatePost() {
                             <DraggableList items={article} setItems={setArticle} />
                         </div>
                     </div>
+                    
                     <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Json And Show Demo</button>
                     <div className='w-full'>
                         <label htmlFor="codeShow" className="block mb-2 text-sm font-medium text-gray-900 text">Json</label>
@@ -240,7 +241,7 @@ export default function CreatePost() {
                 <div className='w-full flex flex-col justify-start items-start '>
                     <Writer {...code} />
 
-                    <img src={code.cover} alt="Cover" className=' w-full rounded-md  object-cover ' />
+                    <img src={code.cover} alt="Cover" className=' w-full rounded-md  max-h-72  object-contain  ' />
 
                     {
                         <div className='w-full flex flex-col gap-1 justify-start  overflow-auto'>
