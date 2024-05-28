@@ -37,6 +37,9 @@ export default function Article({ onResult }) {
         if (items.length) {
             article.items = items
         }
+        if (link) {
+            article.link = link
+        }
         if (code) {
             article.code = code
         }

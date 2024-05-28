@@ -54,4 +54,47 @@ function extractTagsAndSort(codes) {
 function sortByTimeDesc(data) {
     return data.sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
 }
-export { sendMessage, extractTagsAndSort, sortByTimeDesc };
+function parseTextWithMarkdown(text) {
+    // Split the text into parts based on ***, **, *, and [text](link)
+    const parts = text.split(/(\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/);
+
+    return parts.map((part, index) => {
+        if (part.match(/\[[^\]]+\]\([^)]+\)/)) {
+            // Handle [**word**](link) or similar cases
+            const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
+            const linkText = match[1];
+            const url = match[2];
+            return (
+                <a key={index} href={url} className='underline text-blue-600' target='_blank' rel='noopener noreferrer'>
+                    {parseTextWithMarkdown(linkText)}
+                </a>
+            );
+        } else if (part.match(/\*\*\*[^*]+\*\*\*/)) {
+            // Handle ***word*** (italic and bold)
+            const boldItalicText = part.slice(3, -3);
+            return (
+                <strong key={index} className='font-bold italic'>
+                    {boldItalicText}
+                </strong>
+            );
+        } else if (part.match(/\*\*[^*]+\*\*/)) {
+            // Handle **word** (bold)
+            const boldText = part.slice(2, -2);
+            return (
+                <strong key={index} className='font-bold'>
+                    {boldText}
+                </strong>
+            );
+        } else if (part.match(/\*[^*]+\*/)) {
+            // Handle *word* (italic)
+            const italicText = part.slice(1, -1);
+            return (
+                <em key={index} className='italic'>
+                    {italicText}
+                </em>
+            );
+        }
+        return part;
+    });
+}
+export { sendMessage, extractTagsAndSort, sortByTimeDesc, parseTextWithMarkdown };
