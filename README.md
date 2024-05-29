@@ -19,6 +19,8 @@ Below is a list of codes:
 * [Application Handwriting](https://abolfazlbzgh.github.io/#/codeDetail/a869646c-6131-4ab2-b438-3d7182f9fe62)
 
 ### Personal Projects:
+
+* [Chrome Extension Youtube Skip ads](https://abolfazlbzgh.github.io/#/codeDetail/ada7ac17-ac90-4cb9-8345-be36a19d03b3)
 * [Application Pantomimkadeh](https://abolfazlbzgh.github.io/#/codeDetail/031fa187-82a5-4377-bd34-14176cc8d832)
 
 
