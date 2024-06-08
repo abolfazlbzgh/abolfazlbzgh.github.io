@@ -19,6 +19,7 @@ export default function Article({ onResult }) {
         { value: 'ol', label: 'ol' },
         { value: 'code', label: 'code' },
         { value: 'html', label: 'html' },
+        { value: 'video', label: 'video' },
     ];
     const onSubmit = (event) => {
         event.preventDefault();
@@ -91,6 +92,8 @@ export default function Article({ onResult }) {
         } else if (selected.label === 'img') {
             setIsShowSrc(true)
             setIsShowContent(true)
+        }else if (selected.label === 'video') {
+            setIsShowSrc(true)
         } else { // p h html
             setIsShowContent(true)
         }

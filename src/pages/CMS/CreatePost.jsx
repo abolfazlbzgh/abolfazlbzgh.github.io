@@ -16,6 +16,7 @@ import OlTag from '../../components/Tags/OlTag'
 import ImgTag from '../../components/Tags/ImgTag'
 import BrTag from '../../components/Tags/BrTag'
 import ATag from '../../components/Tags/ATag'
+import VideoTag from '../../components/Tags/VideoTag'
 import Tag from '../../components/Code/Tag/Tag'
 import TagCodeDetail from '../../components/Code/Tag/TagCodeDetail';
 import DraggableList from '../../components/CMS/DraggableList';
@@ -121,6 +122,9 @@ export default function CreatePost() {
                     break;
                 case 'a':
                     content.push(<ATag {...block} />)
+                    break;
+                case 'video':
+                    content.push(<VideoTag {...block} />)
                     break;
                 default:
                     console.log(`Unknown Block Type at index ${index + 1}`);

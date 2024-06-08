@@ -62,6 +62,9 @@ export default function CodeDetail() {
                 case 'a':
                     content.push(<ATag {...block} />)
                     break;
+                case 'video':
+                    content.push(<VideoTag {...block} />)
+                    break;
                 default:
                     console.log(`Unknown Block Type at index ${index + 1}`);
             }
