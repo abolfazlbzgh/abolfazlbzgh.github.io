@@ -84,20 +84,22 @@ const awards = [
 
 ];
 const skills = [
-    { id: '1', title: 'Java', percent: 90, },
-    { id: '2', title: 'Java Script', percent: 80, },
-    { id: '3', title: 'React', percent: 80, },
-    { id: '4', title: 'Tailwind CSS', percent: 90, },
-    { id: '5', title: 'Android', percent: 80, },
-    { id: '6', title: 'SQL', percent: 80, },
-    { id: '7', title: 'NodeJS', percent: 60, },
-    { id: '8', title: 'MongoDB', percent: 70, },
-    { id: '9', title: 'PHP', percent: 50, },
-    { id: '10', title: 'Kotlin', percent: 70, },
-    { id: '11', title: 'Python', percent: 50, },
-    { id: '12', title: 'Type Script', percent: 60, },
-    { id: '12', title: 'HardWare: VHDL, Verilog', percent: 60, },
-    { id: '13', title: 'Electronics: FPGA, AVR, ARM', percent: 80, },
+    { id: '1', title: 'Java Script', percent: 80, },
+    { id: '2', title: 'React', percent: 90, },
+    { id: '17', title: 'NextJs', percent: 60, },
+    { id: '3', title: 'Tailwind CSS', percent: 90, },
+    { id: '4', title: 'NodeJS', percent: 60, },
+    { id: '5', title: 'SQL', percent: 80, },
+    { id: '6', title: 'MongoDB', percent: 70, },
+    { id: '7', title: 'Type Script', percent: 70, },
+    { id: '8', title: 'Docker', percent: 80, },
+    { id: '9', title: 'NestJs', percent: 90, },
+    { id: '10', title: 'Java', percent: 90, },
+    { id: '11', title: 'Android', percent: 80, },
+    { id: '12', title: 'PHP', percent: 50, },
+    { id: '13', title: 'Kotlin', percent: 70, },
+    { id: '14', title: 'Python', percent: 50, },
+    { id: '16', title: 'Electronics: FPGA, AVR, ARM', percent: 80, },
 
 
 ];
