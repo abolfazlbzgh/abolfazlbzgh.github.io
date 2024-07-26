@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function sendMessage(name, email, message) {
     const body = `Name: ${name}\nEmail: ${email}\n${message}`
     const url = `https://api.telegram.org/bot7097195113:AAGkCGHn8TtBmTlf8FkqFVuUqsAQ6vUEsC8/sendMessage`;
@@ -52,7 +54,7 @@ function extractTagsAndSort(codes) {
     return allTags;
 }
 function filterAndSortByTimeDesc(data) {
-    return data.filter((code)=>code.isShow == true).sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+    return data.filter((code) => code.isShow == true).sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
 }
 function parseTextWithMarkdown(text) {
     // Split the text into parts based on ***, **, *, and [text](link)
@@ -64,11 +66,19 @@ function parseTextWithMarkdown(text) {
             const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
             const linkText = match[1];
             const url = match[2];
-            return (
-                <a key={index} href={url} className='underline text-blue-600' target='_blank' rel='noopener noreferrer'>
-                    {parseTextWithMarkdown(linkText)}
-                </a>
-            );
+            if (url.startsWith('navigate')) {
+                return (
+                    <Link key={index} className="underline text-blue-600" to={url.replace('navigate', '')}>
+                        {parseTextWithMarkdown(linkText)}
+                    </Link>
+                );
+            } else {
+                return (
+                    <a key={index} href={url} className="underline text-blue-600" target="_blank" rel="noopener noreferrer">
+                        {parseTextWithMarkdown(linkText)}
+                    </a>
+                );
+            }
         } else if (part.match(/\*\*\*[^*]+\*\*\*/)) {
             // Handle ***word*** (italic and bold)
             const boldItalicText = part.slice(3, -3);
