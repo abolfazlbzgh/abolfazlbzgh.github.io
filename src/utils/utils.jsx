@@ -51,8 +51,8 @@ function extractTagsAndSort(codes) {
 
     return allTags;
 }
-function sortByTimeDesc(data) {
-    return data.sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+function filterAndSortByTimeDesc(data) {
+    return data.filter((code)=>code.isShow == true).sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
 }
 function parseTextWithMarkdown(text) {
     // Split the text into parts based on ***, **, *, and [text](link)
@@ -97,4 +97,4 @@ function parseTextWithMarkdown(text) {
         return part;
     });
 }
-export { sendMessage, extractTagsAndSort, sortByTimeDesc, parseTextWithMarkdown };
+export { sendMessage, extractTagsAndSort, filterAndSortByTimeDesc, parseTextWithMarkdown };

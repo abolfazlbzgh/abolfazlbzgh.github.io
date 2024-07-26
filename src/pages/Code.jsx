@@ -7,14 +7,14 @@ import Search from '../components/Search/Search';
 import CodeItem from '../components/Code/CodeItem/CodeItem';
 import Information from '../components/Infromation/Information';
 import MostUseTag from '../components/Code/Tag/MostUseTag';
-import { extractTagsAndSort, sortByTimeDesc } from '../utils/utils'
+import { extractTagsAndSort, filterAndSortByTimeDesc } from '../utils/utils'
 import ScrollToTopButton from '../components/Code/ScrollToTopButton/ScrollToTopButton';
 
 
 export default function Code() {
   const [displayedTags, setDisplayedTags] = useState(3);
   const [previousBreakpoint, setPreviousBreakpoint] = useState('');
-  const [showCodes, setShowCodes] = useState(sortByTimeDesc(codes));
+  const [showCodes, setShowCodes] = useState(filterAndSortByTimeDesc(codes));
   const [searchQuery, setSearchQuery] = useState('');
   const [searchParams] = useSearchParams();
 

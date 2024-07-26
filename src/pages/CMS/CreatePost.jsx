@@ -26,6 +26,7 @@ import { json } from 'react-router-dom';
 
 export default function CreatePost() {
     const [id, setId] = useState(uuidv4())
+    const [isShow, setIsShow] = useState(true)
     const [title, setTitle] = useState('')
     const [creatorName, setCreatorName] = useState('Abolfazl Bazghandi')
     const [creatorImage, setCreatorImage] = useState('/Images/profile.png')
@@ -65,23 +66,18 @@ export default function CreatePost() {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        setCode({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article })
-        localStorage.setItem(id, JSON.stringify({ ...code, id, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article }));
+        setCode({ ...code, id, isShow, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article })
+        localStorage.setItem(id, JSON.stringify({ ...code, id, isShow, title, creatorName, creatorImage, createTime, cover, tags, btnLink, btn, article }));
     }
 
     const setTagsFromTagItems = (items) => {
         setTags(items)
     }
-    const controlTextArea = (event) => {
-        // try {
-        //     JSON.parse(event.target.value)
-        //     setCode(JSON.parse(event.target.value))
-        // } catch (error) {
-        //     console.log(error);
-        // }
-    }
+    const handleIsShow = () => {
+        setIsShow(!isShow);
+    };
     const onResultArticle = (result) => {
-        setArticle([...article, { ...result }]); 
+        setArticle([...article, { ...result }]);
     }
     const render = () => {
         const content = [];
@@ -202,7 +198,16 @@ export default function CreatePost() {
                     <Input title='Cover' placeholder="Cover Image Address File" state={cover} setState={setCover} />
                     <Input title='Title of button of end page' placeholder="Title button" state={btn} setState={setBtn} />
                     <Input title='Link of button of end page' placeholder="Link button" state={btnLink} setState={setBtnLink} />
-                    <button onClick={loadFromId} class="text-white my-auto bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full h-10 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">Load From Id</button>
+                    <button onClick={loadFromId} className="text-white my-auto bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full h-10 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">Load From Id</button>
+                    <div className="flex items-center">
+                        <input
+                            type="checkbox"
+                            className="form-checkbox h-5 w-5 text-blue-600"
+                            checked={isShow}
+                            onChange={handleIsShow}
+                        />
+                        <label className="ml-2 text-gray-700 text-sm">Publish this post in the Code section</label>
+                    </div>
                 </div>
                 <div className='flex w-full bgBox p-4'>
 
@@ -218,11 +223,11 @@ export default function CreatePost() {
                             <DraggableList items={article} setItems={setArticle} />
                         </div>
                     </div>
-                    
-                    <button type="submit" class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Json And Show Demo</button>
+
+                    <button type="submit" className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Json And Show Demo</button>
                     <div className='w-full'>
                         <label htmlFor="codeShow" className="block mb-2 text-sm font-medium text-gray-900 text">Json</label>
-                        <textarea id="codeShow" rows="2" value={JSON.stringify(code)} onChange={(event) => controlTextArea(event)} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
+                        <textarea id="codeShow" rows="2" value={JSON.stringify(code)} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
 
                     </div>
 
