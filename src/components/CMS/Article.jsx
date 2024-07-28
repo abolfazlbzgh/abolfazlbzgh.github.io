@@ -104,7 +104,7 @@ export default function Article({ onResult }) {
         setItems(allItems)
     }
     return (
-        <div className='w-full'>
+        <div className='w-full mt-4'>
             <form className='flex flex-col gap-4' onSubmit={(event) => onSubmit(event)}>
                 <div className='grid grid-cols-2 gap-4'>
 
