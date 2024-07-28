@@ -59,6 +59,7 @@ export default function DraggableList({ items, setItems }) {
                                             <textarea
                                                 className="flex-grow p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600"
                                                 value={editContent}
+                                                rows={4}
                                                 onChange={(e) => setEditContent(e.target.value)}
                                             />
                                         ) : (
