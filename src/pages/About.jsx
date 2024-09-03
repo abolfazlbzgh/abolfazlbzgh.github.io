@@ -12,7 +12,7 @@ export default function About() {
         <div className="row-span-2 flex justify-start items-center">
 
           <img src='./Images/profile.png' alt="Profile" className=' w-11/12 lg:hidden lg:opacity-0 overflow-hidden bg-primary  rounded-lg object-cover' />
-          <img src='./Images/profile2.png' alt="Profile" className='hidden opacity-0 lg:flex lg:opacity-100  overflow-hidden bg-primary w-11/12 rounded-lg object-cover' />
+          <img src='./Images/profile2.jpg' alt="Profile" className='hidden opacity-0 lg:flex lg:opacity-100  overflow-hidden bg-primary w-11/12 rounded-lg object-cover' />
         </div>
         <div className="row-span-1 col-span-2  flex flex-col  ">
           <h2 className='text-2xl text-title'>
