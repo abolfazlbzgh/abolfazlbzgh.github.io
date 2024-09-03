@@ -93,7 +93,7 @@ const skills = [
     { id: '6', title: 'MongoDB', percent: 70, },
     { id: '7', title: 'Type Script', percent: 70, },
     { id: '8', title: 'Docker', percent: 80, },
-    { id: '9', title: 'NestJs', percent: 90, },
+    { id: '9', title: 'Kubernetes', percent: 70, },
     { id: '10', title: 'Java', percent: 90, },
     { id: '11', title: 'Android', percent: 80, },
     { id: '12', title: 'PHP', percent: 50, },
